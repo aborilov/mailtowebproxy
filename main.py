@@ -41,8 +41,6 @@ class MainHandler(webapp2.RequestHandler):
             out_message.send()
         except urllib2.URLError, e:
             logging.exception(e)
-        logging.debug("message {}".format(message.subject))
-        logging.debug([body[1].decode() for body in message.bodies()])
         self.response.write('ok')
 app = webapp2.WSGIApplication([
     ('/.+', MainHandler)
